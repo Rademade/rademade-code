@@ -1,0 +1,24 @@
+/* this file only for syntax highlight and code completion */
+
+/* all usable variables declared at file: #{projectRoot}/config/webpack/postcss/variables.js  */
+:root {
+  --primary-color           : '';
+
+  --lato-black              : '';
+  --lato-bold               : '';
+  --lato-hairline           : '';
+  --lato-light              : '';
+  --lato-regular            : '';
+
+  --text-overflow           : {};
+  --box-styles              : {};
+  --box-styles-line         : {};
+  --box-clear               : {};
+}
+
+/* all usable variables declared at file: #{projectRoot}/config/webpack/postcss/media.js  */
+@custom-media --phone;
+@custom-media --phone-large;
+@custom-media --tablet;
+@custom-media --desktop;
+@custom-media --desktop-large;

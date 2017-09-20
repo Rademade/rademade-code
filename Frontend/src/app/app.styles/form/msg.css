@@ -1,0 +1,19 @@
+.form-msg {
+  position: fixed;
+  z-index: 999;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.form-msg__data {
+  display: inline-block;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: rem(14);
+  line-height: lh(17,14);
+  background: #DF4A32;
+  border-radius: 3px;
+  vertical-align: top;
+}

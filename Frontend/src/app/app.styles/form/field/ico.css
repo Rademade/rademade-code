@@ -1,0 +1,7 @@
+.field__ico {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: var(--error-color);
+  font-size: rem(18);
+}

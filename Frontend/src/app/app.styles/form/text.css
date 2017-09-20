@@ -1,0 +1,13 @@
+.form__text {
+  display: block;
+  margin-bottom: 27px;
+  color: #333333;
+  font-size: rem(18);
+  font-family: var(--lato-regular);
+  line-height: lh(22,18);
+
+  p {
+    margin-bottom: 20px;
+  }
+
+}

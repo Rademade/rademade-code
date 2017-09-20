@@ -1,9 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
+import * as sprite from './app.sprite';
+
+require('fonts');
 
 @Component({
-  selector: 'app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'rc-app',
+  encapsulation: ViewEncapsulation.None,
+  template: `
+    <router-outlet></router-outlet>`,
+  styleUrls: ['app.styles/_import.css']
 })
-export class AppComponent { }
+
+export class AppComponent {
+  constructor() {
+
+  }
+}
+
+export default sprite;

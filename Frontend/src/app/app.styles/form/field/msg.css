@@ -1,0 +1,15 @@
+.field-msg {
+  position: absolute;
+  top: 100%;
+  color: #999999;
+  font-size: rem(12);
+  line-height: lh(12,12);
+}
+
+.field-msg__item {
+  display: none;
+
+  &:first-child {
+    display: block;
+  }
+}

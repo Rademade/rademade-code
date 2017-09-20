@@ -13,15 +13,20 @@
     "strictNullChecks": false,
     "removeComments": true,
     "lib": [
+      "es2017",
       "dom",
       "es7"
     ],
     "baseUrl": "./src/app",
     "paths": {
       "sprites": ["../assets/sprite"],
-      "services": ["services"],
-      "directives": ["directives"],
-      "components": ["components"],
+      "assets": ["../assets"],
+      "@services": ["services"],
+      "@helpers": ["helpers"],
+      "@models": ["models"],
+      "@directives": ["directives"],
+      "@components": ["components"],
+      "@resolvers": ["resolvers"],
       "fonts": ["../assets/fonts/fonts.js"]
     }
   },

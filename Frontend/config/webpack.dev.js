@@ -20,6 +20,10 @@ module.exports = webpackMerge(commonConfig, {
   devServer: {
     historyApiFallback: true,
     stats: 'minimal',
+    proxy: {
+      "/api": "http://0.0.0.0:3001",
+      "/uploads": "http://0.0.0.0:3001",
+    },
     watchOptions: {
       ignored: /node_modules/
     }

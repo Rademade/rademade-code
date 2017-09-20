@@ -1,0 +1,14 @@
+.field {
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.field__box {
+  position: relative;
+  display: block;
+}
+
+.field_disabled_margin {
+  margin-bottom: 0;
+}
