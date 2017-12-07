@@ -1,8 +1,0 @@
-.btn-link {
-  display: inline-block;
-  font-size: rem(14);
-  color: var(--primary-color);
-  line-height: lh(20,14);
-  cursor: pointer;
-  vertical-align: middle;
-}

@@ -1,0 +1,10 @@
+<h2>Login</h2>
+<form class="form form_sign form_shadow" [formGroup]="form" (ngSubmit)="onSubmit(email.value,password.value)">
+  <label>
+    <input type="text" #email class="form-control" formControlName="email"/>
+  </label>
+  <label>
+    <input type="password" #password class="form-control" formControlName="password"/>
+  </label>
+  <button class="btn btn_green btn_phone-full">Sign In</button>
+</form>

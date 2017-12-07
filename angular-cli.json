@@ -1,0 +1,33 @@
+{
+  "project": {
+    "name": "Rademade Code"
+  },
+  "apps": [
+    {
+      "root": "./app/javascript/rc",
+      "outDir": "./app/javascript/rc/dist",
+      "assets": [
+        "./assets",
+        "./favicon.ico"
+      ],
+      "index": "../index.ts",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "vendors": "vendors.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "oms",
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "defaults": {
+    "styleExt": "styles/_import.css",
+    "component": {
+      "spec": false
+    }
+  }
+}

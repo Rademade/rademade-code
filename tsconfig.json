@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "strictNullChecks": false,
+    "removeComments": true,
+    "lib": [
+      "dom",
+      "es7"
+    ],
+    "baseUrl": "./app/javascript/rc/app",
+    "paths": {
+      "sprites": ["../assets/sprite"],
+      "services": ["services"],
+      "directives": ["directives"],
+      "components": ["components"],
+      "pipes": ["pipes"],
+      "fonts": ["../assets/fonts/fonts.js"]
+    }
+  },
+  "exclude": [
+    "**/*.spec.ts",
+    "node_modules",
+    "public"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false
+}

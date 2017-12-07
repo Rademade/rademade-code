@@ -1,0 +1,12 @@
+{
+  "Admin.js": "http://0.0.0.0:8080/packs/Admin-chunk.dc573c5d36576fc2b7ef.js",
+  "AdminSnippetsList.js": "http://0.0.0.0:8080/packs/AdminSnippetsList-chunk.dc573c5d36576fc2b7ef.js",
+  "AdminUsersList.js": "http://0.0.0.0:8080/packs/AdminUsersList-chunk.dc573c5d36576fc2b7ef.js",
+  "NotFound.js": "http://0.0.0.0:8080/packs/NotFound-chunk.dc573c5d36576fc2b7ef.js",
+  "Public.js": "http://0.0.0.0:8080/packs/Public-chunk.dc573c5d36576fc2b7ef.js",
+  "PublicHome.js": "http://0.0.0.0:8080/packs/PublicHome-chunk.dc573c5d36576fc2b7ef.js",
+  "Sign.js": "http://0.0.0.0:8080/packs/Sign-chunk.dc573c5d36576fc2b7ef.js",
+  "SignIn.js": "http://0.0.0.0:8080/packs/SignIn-chunk.dc573c5d36576fc2b7ef.js",
+  "polyfills.js": "http://0.0.0.0:8080/packs/polyfills.js",
+  "rc.js": "http://0.0.0.0:8080/packs/rc.js"
+}

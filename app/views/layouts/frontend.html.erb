@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <title>Angular With Webpack</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <%= yield %>
+  <%= javascript_pack_tag 'polyfills', defer: true %>
+  <%= javascript_pack_tag 'rc', defer: true %>
+</body>
+</html>
