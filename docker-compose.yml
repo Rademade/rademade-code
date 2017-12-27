@@ -1,0 +1,68 @@
+version: '3'
+
+networks:
+  rademade-code:
+  proxy:
+    external:
+      name: proxy
+    
+services:
+  rademade-code_app:
+    image: registry.demo-rademade.com/rademade-code:latest
+    networks:
+      - rademade-code 
+    environment:
+      POSTGRES_DB: rademade-code_production
+      POSTGRES_USER: rademade-code
+      POSTGRES_HOST: rademade-code_db 
+    volumes:
+      - type: bind
+        source: /var/volume/rademade-code/static
+        target: /app/static   
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+
+  rademade-code_nginx:
+    image: nginx:stable
+    networks:
+      - rademade-code
+      - proxy
+    volumes:
+      - type: bind
+        source: /var/volume/rademade-code/static
+        target: /static
+      - type: bind  
+    depends_on:
+      - rademade-code_app
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.port=80"
+        - "traefik.docker.network=proxy"
+        - "traefik.frontend.rule=Host:code.demo-rademade.com"
+        - "traefik.backend=rademade-code_nginx"
+        - "traefik.frontend.entryPoints=http,https"
+        - "traefik.acme.domains=code.demo-rademade.com"
+      placement:
+        constraints:
+          - node.role == manager
+
+    rademade-code_db:
+    image: postgres:9.6
+    networks:
+      - rademade-code
+    environment:
+      POSTGRES_DB: "rademade-code_production"
+      POSTGRES_USER: "rademade-code"
+    volumes:
+      - type: bind
+        source: /var/volume/projects/rademade-code/dbdata
+        target: /var/lib/postgresql/data
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
