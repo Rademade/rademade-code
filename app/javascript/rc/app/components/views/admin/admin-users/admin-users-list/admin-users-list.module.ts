@@ -18,7 +18,7 @@ import {AdminUsersListResolver} from "./admin-users-list.resolver";
     AdminUsersListResolver
   ],
   exports: [
-    RouterModule,
+    RouterModule
   ]
 })
 export class AdminUsersListModule { }

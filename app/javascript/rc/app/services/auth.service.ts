@@ -5,18 +5,15 @@ export class AuthService {
     const promise = new Promise(
       (resolve, reject) => {
         setTimeout(() => {
-          resolve(this.loggedIn);
+          resolve(this.isLoggedIn());
         }, 800)
       }
     );
     console.log(this.loggedIn);
     return promise;
   }
-  public login() {
-    this.loggedIn = true;
-  }
 
-  public logout() {
-    this.loggedIn = false;
+  public isLoggedIn() {
+    return !!localStorage.getItem('token');
   }
 }

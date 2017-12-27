@@ -1,12 +1,12 @@
 {
-  "Admin.js": "http://0.0.0.0:8080/packs/Admin-chunk.dc573c5d36576fc2b7ef.js",
-  "AdminSnippetsList.js": "http://0.0.0.0:8080/packs/AdminSnippetsList-chunk.dc573c5d36576fc2b7ef.js",
-  "AdminUsersList.js": "http://0.0.0.0:8080/packs/AdminUsersList-chunk.dc573c5d36576fc2b7ef.js",
-  "NotFound.js": "http://0.0.0.0:8080/packs/NotFound-chunk.dc573c5d36576fc2b7ef.js",
-  "Public.js": "http://0.0.0.0:8080/packs/Public-chunk.dc573c5d36576fc2b7ef.js",
-  "PublicHome.js": "http://0.0.0.0:8080/packs/PublicHome-chunk.dc573c5d36576fc2b7ef.js",
-  "Sign.js": "http://0.0.0.0:8080/packs/Sign-chunk.dc573c5d36576fc2b7ef.js",
-  "SignIn.js": "http://0.0.0.0:8080/packs/SignIn-chunk.dc573c5d36576fc2b7ef.js",
-  "polyfills.js": "http://0.0.0.0:8080/packs/polyfills.js",
-  "rc.js": "http://0.0.0.0:8080/packs/rc.js"
+  "Admin.js": "/packs/Admin-chunk.5ba96f952035c188cb5b.js",
+  "AdminSnippetsList.js": "/packs/AdminSnippetsList-chunk.5ba96f952035c188cb5b.js",
+  "AdminUsersList.js": "/packs/AdminUsersList-chunk.5ba96f952035c188cb5b.js",
+  "NotFound.js": "/packs/NotFound-chunk.5ba96f952035c188cb5b.js",
+  "Public.js": "/packs/Public-chunk.5ba96f952035c188cb5b.js",
+  "PublicHome.js": "/packs/PublicHome-chunk.5ba96f952035c188cb5b.js",
+  "Sign.js": "/packs/Sign-chunk.5ba96f952035c188cb5b.js",
+  "SignIn.js": "/packs/SignIn-chunk.5ba96f952035c188cb5b.js",
+  "polyfills.js": "/packs/polyfills.js",
+  "rc.js": "/packs/rc.js"
 }

@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { AdminComponent } from 'components/views/admin/admin.component';
 import { adminRoutes } from "./admin.routes";
-import {UserService} from "services";
+import {SnippetService, UserService} from "services";
 
 @NgModule({
   imports: [
@@ -15,7 +15,8 @@ import {UserService} from "services";
     AdminComponent,
   ],
   providers: [
-    UserService
+    UserService,
+    SnippetService
   ],
   exports: [
     RouterModule

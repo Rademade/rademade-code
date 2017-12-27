@@ -12,5 +12,6 @@ export class AdminSnippetsListComponent implements OnInit {
   constructor( public activeRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    this.snippets = this.activeRoute.snapshot.data['snippets'];
   }
 }

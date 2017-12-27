@@ -98,14 +98,6 @@ export class SignService {
   //   });
   // }
   //
-  public getAuthStatus() {
-    let token = localStorage.getItem('token');
-    if (token) {
-      this.authService.login();
-    } else {
-      return false;
-    }
-  }
 
   // getPreviousUrl() {
   //   return this.cls.getItem('previousUrl') || '/';

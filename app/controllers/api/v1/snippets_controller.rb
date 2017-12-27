@@ -5,14 +5,12 @@ module Api
       before_action :set_snippet, only: [:show, :update, :destroy]
       # GET /snippets
       def index
-        respond_to do |snippets|
-          snippets.json { render json:  Snippet.all }
-        end
+        @snippets = Snippet.all
       end
 
       # GET /snippets/1
       def show
-        render json: @snippet
+        @snippet = find_snippet
       end
 
       # POST /snippets
@@ -42,8 +40,8 @@ module Api
 
       private
       # Use callbacks to share common setup or constraints between actions.
-      def set_snippet
-        @snippet = Snippet.find(params[:id])
+      def find_snippet
+        Snippet.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.

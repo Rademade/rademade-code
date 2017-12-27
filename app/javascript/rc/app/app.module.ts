@@ -36,9 +36,7 @@ import { AppRoutingModule } from "./app.routing";
 })
 
 export class AppModule {
-  constructor(public appRef: ApplicationRef, public appStore: AppStore, public signService: SignService) {
-    this.signService.getAuthStatus();
-
+  constructor(public appRef: ApplicationRef, public appStore: AppStore) {
   }
 
   hmrOnInit(store) {

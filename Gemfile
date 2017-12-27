@@ -15,6 +15,8 @@ gem 'puma', '~> 3.7'
 gem 'jwt'
 gem 'simple_command'
 gem 'webpacker', '~> 3.0'
+gem 'rabl'
+gem 'oj'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

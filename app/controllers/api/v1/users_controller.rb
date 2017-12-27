@@ -2,24 +2,23 @@ module Api
   module V1
     class UsersController < ApplicationController
       skip_before_action  :authenticate_request, only: [:index, :show]
-      before_action :set_user, only: [:show, :update, :destroy]
 
       # GET /users
       def index
-        respond_to do |users|
-          users.json { render json:  User.all }
-        end
+        @users = User.all
       end
 
       # GET /users/1
       def show
-        render json: @user
+        @user = find_user
       end
 
       # POST /users
 
       def create
-
+        unless current_user.role.admin?
+          raise 'Not authourized'
+        end
         @user = User.new(user_params)
 
         if @user.save
@@ -31,6 +30,7 @@ module Api
 
       # PATCH/PUT /users/1
       def update
+        @user = find_user
         if @user.update(user_params)
           render json: @user
         else
@@ -40,15 +40,14 @@ module Api
 
       # DELETE /users/1
       def destroy
-        @user.destroy
+        find_user.destroy
       end
 
       private
 
-
       # Use callbacks to share common setup or constraints between actions.
-      def set_user
-        @user = User.find(params[:id])
+      def find_user
+        User.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.

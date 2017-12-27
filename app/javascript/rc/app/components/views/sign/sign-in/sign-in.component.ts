@@ -36,7 +36,6 @@ export class SignInComponent implements OnInit {
         console.log(res);
         localStorage.setItem('token', res['auth_token']);
         localStorage.setItem('userInfo', JSON.stringify({email: res['user']}));
-        this.authService.login();
         this.router.navigate(['/admin/users']);
       },
       (e) => {
