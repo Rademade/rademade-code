@@ -11,12 +11,12 @@ export const adminRoutes: Routes = [
     children: [
       {
         path: 'users',
-        loadChildren: 'admin/users/users.module.ts#UsersModule?chunkName=Users'
+        loadChildren: 'admin/users/users.module.ts#AdminUsersModule?chunkName=AdminUsers'
 
       },
       {
         path: 'snippets',
-        loadChildren: 'admin/snippets/snippets.module.ts#SnippetsModule?chunkName=Snippets'
+        loadChildren: 'admin/snippets/snippets.module.ts#AdminSnippetsModule?chunkName=AdminSnippets'
       }
     ]
   }

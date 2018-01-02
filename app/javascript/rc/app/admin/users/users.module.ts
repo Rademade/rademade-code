@@ -21,4 +21,4 @@ import { usersRoutes } from 'admin/users/users.routes';
     RouterModule
   ]
 })
-export class UsersModule { }
+export class AdminUsersModule { }

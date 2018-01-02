@@ -24,4 +24,4 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     RouterModule
   ]
 })
-export class SnippetsModule { }
+export class PublicSnippetsModule { }

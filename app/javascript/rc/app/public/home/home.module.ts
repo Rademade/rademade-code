@@ -17,4 +17,4 @@ import { homeRoutes } from "public/home/home.routes";
     RouterModule
   ]
 })
-export class HomeModule { }
+export class PublicHomeModule { }

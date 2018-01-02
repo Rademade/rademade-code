@@ -8,11 +8,11 @@ export const publicRoutes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: 'public/home/home.module.ts#HomeModule?chunkName=PublicHome'
+        loadChildren: 'public/home/home.module.ts#PublicHomeModule?chunkName=PublicHome'
       },
       {
         path: 'snippets',
-        loadChildren: 'public//snippets/snippets.module.ts#SnippetsModule?chunkName=PublicSnippets'
+        loadChildren: 'public/snippets/snippets.module.ts#PublicSnippetsModule?chunkName=PublicSnippets'
       }
     ]
   },
