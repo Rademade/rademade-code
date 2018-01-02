@@ -1,6 +1,6 @@
 object @snippet
 
-attributes :id, :title, :description
+attributes :id, :title, :description, :sref
 
 node(:user) do |snippet|
   {

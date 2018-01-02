@@ -4,11 +4,9 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
 
 export interface State {
-  // define your state here
 }
 
 const defaultState: State = {
-  // define your initial state here
 };
 
 const _store = new BehaviorSubject<State>(defaultState);

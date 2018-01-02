@@ -16,7 +16,7 @@ module Api
       # POST /users
 
       def create
-        unless current_user.role.admin?
+        unless current_user.is_admin?
           raise 'Not authourized'
         end
         @user = User.new(user_params)
@@ -52,7 +52,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def user_params
-        params.require(:user).permit(:name, :email)
+        params.require(:user).permit(:name, :email, :password)
       end
     end
 

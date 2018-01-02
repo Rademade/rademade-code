@@ -1,0 +1,24 @@
+<form class="form"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+  <label>
+    <input type="text" class="form-control" formControlName="title"/>
+  </label>
+  <label>
+    <input type="text" class="form-control" formControlName="description"/>
+  </label>
+  <label>
+    <input type="text" class="form-control" formControlName="sref"/>
+  </label>
+  <button class="btn btn_green btn_phone-full">Add snippet</button>
+</form>
+
+<ul>
+  <li *ngFor="let snippet of snippets">
+    <p>{{ snippet.id }}</p>
+    <p>{{ snippet.title }}</p>
+    <p>{{ snippet.description }}</p>
+    <a href="#">{{ snippet.sref }}</a>
+    <p>{{ snippet.user.name }}</p>
+  </li>
+</ul>

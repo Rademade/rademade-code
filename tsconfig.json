@@ -19,10 +19,9 @@
     "baseUrl": "./app/javascript/rc/app",
     "paths": {
       "sprites": ["../assets/sprite"],
-      "services": ["services"],
-      "directives": ["directives"],
-      "components": ["components"],
-      "pipes": ["pipes"],
+      "services": ["@shared/services"],
+      "models": ["@shared/models"],
+      "directives": ["@shared/directives"],
       "fonts": ["../assets/fonts/fonts.js"]
     }
   },

@@ -16,9 +16,8 @@ module Api
       # POST /snippets
       def create
         @snippet = Snippet.new(snippet_params)
-
         if @snippet.save
-          render json: @snippet, status: :created, location: @snippet
+          render json: @snippet, status: :created
         else
           render json: @snippet.errors, status: :unprocessable_entity
         end
