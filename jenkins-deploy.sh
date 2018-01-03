@@ -18,5 +18,7 @@ sudo docker build -t $REGISTRY/$PROJECT_NAME:latest .
 sudo docker push $REGISTRY/$PROJECT_NAME:latest
 
 #update service on docker manager
-ssh  $DOCKER_USER@$DOCKER_HOST 'docker service update --image registry.demo-rademade.com/rademade-code:latest rademade-code_app'
+ssh  $DOCKER_USER@$DOCKER_HOST "docker login --username=$REGISTRY_USER --password=$REGISTRY_PASS $REGISTRY && docker service update --image $REGISTRY/$PROJECT_NAME:latest rademade-code_app &&  docker logout $REGISTRY && exit"
+
+break
 
