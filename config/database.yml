@@ -1,7 +1,12 @@
 default: &default
-  url:  <%= ENV['DATABASE_URL'] || "postgresql://%s@%s:%s/%s_#{Rails.env}" % [ENV['POSTGRES_USER'] || ENV['USER'], ENV['POSTGRES_HOST'] || 'localhost', ENV['POSTGRES_PORT'] || '5432', ENV['POSTGRES_DB'] || 'rademade-code_production'] %>
+  adapter: postgresql
+  host: <%= ENV["POSTGRES_HOST"] || rademade-code_db %>
+  port: <%= ENV["POSTGRES_PORT"] || 5432 %>
+  user: <%= ENV["POSTGRES_USER"] || rademade-code %>
+  database: <%= ENV["POSTGRES_DB"] || rademade-code_production %>
   pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
   encoding: unicode
+
   timeout: 5
   variables:
     tcp_keepalives_idle: 60
@@ -16,6 +21,6 @@ test: &test
 
 production:
   <<: *default
-
+  
 cucumber:
   <<: *test
