@@ -17,6 +17,9 @@ ENV INSTALL_PATH /app
 RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
+COPY ./wait-for.sh /bin/wait-for
+RUN chmod 755 /bin/wait-for
+
 COPY . .
 
 RUN bundle install --without development test

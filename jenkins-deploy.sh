@@ -18,5 +18,5 @@ sudo docker build -t $REGISTRY/$PROJECT_NAME:latest .
 sudo docker push $REGISTRY/$PROJECT_NAME:latest
 
 #update service on docker manager
-ssh  $DOCKER_USER@$DOCKER_HOST "docker login --username=$REGISTRY_USER --password=$REGISTRY_PASS $REGISTRY && docker stack deploy -c ~/projects/$PROJECT_NAME/docker-compose.yml $PROJECT_NAME --with-registry-auth &&  docker logout $REGISTRY && exit"
+ssh  $DOCKER_USER@$DOCKER_HOST "docker login --username=$REGISTRY_USER --password=$REGISTRY_PASS $REGISTRY && docker stack deploy -c ~/projects/$PROJECT_NAME/docker-compose.yml $PROJECT_NAME --prune --with-registry-auth &&  docker logout $REGISTRY && exit"
 
