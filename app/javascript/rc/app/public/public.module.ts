@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 
 import { PublicComponent } from 'public/public.component';
 import { publicRoutes } from 'public/public.routes';
-import {CommonModule} from "@angular/common";
-import {SnippetsService} from 'services';
+import { CommonModule } from '@angular/common';
+import { SnippetsService } from 'services';
 
 @NgModule({
   imports: [
@@ -22,4 +22,5 @@ import {SnippetsService} from 'services';
   ]
 })
 
-export class PublicModule {}
+export class PublicModule {
+}

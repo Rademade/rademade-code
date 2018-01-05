@@ -1,15 +1,11 @@
 {
-  "Admin.js": "http://0.0.0.0:8080/packs/Admin-chunk.01676bdf65e371aa180c.js",
-  "Home.js": "http://0.0.0.0:8080/packs/Home-chunk.19b65f12147468ff347a.js",
-  "NotFound.js": "http://0.0.0.0:8080/packs/NotFound-chunk.c6794150c248845d8156.js",
-  "Public.js": "http://0.0.0.0:8080/packs/Public-chunk.01676bdf65e371aa180c.js",
-  "Sign.js": "http://0.0.0.0:8080/packs/Sign-chunk.01676bdf65e371aa180c.js",
-  "Snippets.js": "http://0.0.0.0:8080/packs/Snippets-chunk.864ae999844559b4453b.js",
-  "Users.js": "http://0.0.0.0:8080/packs/Users-chunk.864ae999844559b4453b.js",
+  "Admin.js": "http://0.0.0.0:8080/packs/Admin-chunk.45e96e8adbe0eef245f2.js",
+  "AdminSnippets.js": "http://0.0.0.0:8080/packs/AdminSnippets-chunk.45e96e8adbe0eef245f2.js",
+  "AdminUsers.js": "http://0.0.0.0:8080/packs/AdminUsers-chunk.45e96e8adbe0eef245f2.js",
+  "Public.js": "http://0.0.0.0:8080/packs/Public-chunk.45e96e8adbe0eef245f2.js",
+  "PublicHome.js": "http://0.0.0.0:8080/packs/PublicHome-chunk.45e96e8adbe0eef245f2.js",
+  "PublicSnippets.js": "http://0.0.0.0:8080/packs/PublicSnippets-chunk.45e96e8adbe0eef245f2.js",
+  "Sign.js": "http://0.0.0.0:8080/packs/Sign-chunk.45e96e8adbe0eef245f2.js",
   "polyfills.js": "http://0.0.0.0:8080/packs/polyfills.js",
-  "rc.js": "http://0.0.0.0:8080/packs/rc.js",
-  "PublicHome.js": "http://0.0.0.0:8080/packs/PublicHome-chunk.01676bdf65e371aa180c.js",
-  "PublicSnippets.js": "http://0.0.0.0:8080/packs/PublicSnippets-chunk.01676bdf65e371aa180c.js",
-  "AdminSnippets.js": "http://0.0.0.0:8080/packs/AdminSnippets-chunk.01676bdf65e371aa180c.js",
-  "AdminUsers.js": "http://0.0.0.0:8080/packs/AdminUsers-chunk.01676bdf65e371aa180c.js"
+  "rc.js": "http://0.0.0.0:8080/packs/rc.js"
 }

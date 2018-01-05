@@ -1,3 +1,5 @@
+require 'json_web_token'
+
 class AuthorizeApiRequest
   prepend SimpleCommand
   def initialize(headers = {})
@@ -22,10 +24,10 @@ class AuthorizeApiRequest
   def http_auth_header
     if headers['Authorization'].present?
       return headers['Authorization'].split(' ').last
-  else
-    errors.add(:token, 'Missing token')
-  end
+    else
+      errors.add(:token, 'Missing token')
+    end
 
-  nil
-end
+    nil
+  end
 end
