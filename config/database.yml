@@ -1,9 +1,9 @@
 default: &default
   adapter: postgresql
-  host: <%= ENV["POSTGRES_HOST"] || rademade-code_db %>
+  host: <%= ENV["POSTGRES_HOST"] || 'rademade-code_db' %>
   port: <%= ENV["POSTGRES_PORT"] || 5432 %>
-  user: <%= ENV["POSTGRES_USER"] || rademade-code %>
-  database: <%= ENV["POSTGRES_DB"] || rademade-code_production %>
+  user: <%= ENV["POSTGRES_USER"] || 'rademade-code' %>
+  database: <%= ENV["POSTGRES_DB"] || 'rademade-code_production' %>
   pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
   encoding: unicode
 
