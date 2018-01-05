@@ -7,34 +7,32 @@ networks:
       name: proxy
     
 services:
-  rademade-code_app:
+  app:
     image: registry.demo-rademade.com/rademade-code:latest
     networks:
-      - rademade-code 
+      - rademade-code
     environment:
       POSTGRES_DB: rademade-code_production
       POSTGRES_USER: rademade-code
-      POSTGRES_HOST: rademade-code_db 
+      POSTGRES_HOST: rademade-code_db
+      SECRET_KEY_BASE: 12f15c62c02ab253b02de4a0f9df307220659787b3d75ec0904378b01edd98ae474f19fb865a3ed1802ecc82335fdcc432081f4dfcd5d2b1a881a07bd9298f03
+      RAILS_LOG_TO_STDOUT: 'true'
     volumes:
-      - type: bind
-        source: /var/volume/rademade-code/static
-        target: /app/static   
+      - /var/volume/projects/rademade-code/static:/app/static
     deploy:
       replicas: 1
       placement:
         constraints:
           - node.role == manager
 
-  rademade-code_nginx:
+  nginx:
     image: nginx:stable
     networks:
       - rademade-code
       - proxy
     volumes:
-      - type: bind
-        source: /var/volume/rademade-code/static
-        target: /static
-      - type: bind  
+      - /var/volume/projects/rademade-code/static:/static
+      - /var/volume/projects/rademade-code/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - rademade-code_app
     deploy:
@@ -50,7 +48,7 @@ services:
         constraints:
           - node.role == manager
 
-    rademade-code_db:
+  db:
     image: postgres:9.6
     networks:
       - rademade-code
@@ -58,9 +56,7 @@ services:
       POSTGRES_DB: "rademade-code_production"
       POSTGRES_USER: "rademade-code"
     volumes:
-      - type: bind
-        source: /var/volume/projects/rademade-code/dbdata
-        target: /var/lib/postgresql/data
+      - /var/volume/projects/rademade-code/dbdata:/var/lib/postgresql/data
     deploy:
       replicas: 1
       placement:
