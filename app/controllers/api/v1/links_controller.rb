@@ -1,8 +1,8 @@
 module Api
   module V1
     class LinksController < ApplicationController
-      before_action :set_link, only: [:show, :update, :destroy]
-      skip_before_action  :authenticate_request, only: [:index, :show]
+      before_action :set_link, only: [:show]
+      before_action :authenticate_request, except: [:index, :show]
 
       def index
         respond_to do |links|

@@ -1,4 +1,4 @@
-export class User {
+export class UserModel {
   id: number;
   name: string;
   email: string;
@@ -6,6 +6,7 @@ export class User {
   created_at: any;
   user_id: number;
   is_admin: boolean;
+  exp: number;
 
   constructor(json) {
     Object.assign(this, json)

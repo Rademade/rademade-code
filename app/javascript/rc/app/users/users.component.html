@@ -1,0 +1,28 @@
+<div>
+  <label>
+    <input type="text" #name placeholder="Name"/>
+  </label>
+  <label>
+    <input type="text" #email placeholder="Email"/>
+  </label>
+  <label>
+    <input type="password" #password placeholder="Password"/>
+  </label>
+  <button (click)="addUser(name.value,email.value,password.value)">Add User</button>
+</div>
+
+<ul>
+  <li *ngFor="let user of users;let index = index;">
+    <p>{{ user.id }}</p>
+    <p>{{ user.name }}</p>
+    <p>{{ user.email }}</p>
+    <label>
+      <input type="text" #name [(ngModel)]="user.name" [attr.value]="user.name">
+    </label>
+    <label>
+      <input type="email" #email [attr.value]="user.email">
+    </label>
+    <button (click)="updateUser(user.id, name.value, email.value)">Update</button>
+    <button (click)="destroyUser(user.id,index)">Delete</button>
+  </li>
+</ul>

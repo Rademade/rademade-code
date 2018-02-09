@@ -1,0 +1,27 @@
+<form class="form"
+      [formGroup]="createChecklistForm"
+      (ngSubmit)="onSubmit()">
+  <label>
+    <input type="text" class="form-control" formControlName="title"/>
+  </label>
+  <button class="btn btn_green btn_phone-full">Add checklist</button>
+</form>
+
+<ul>
+  <li *ngFor="let checklist of checklists">
+    <p>{{ checklist.title }}</p>
+    <form class="form"
+          (ngSubmit)="onCreateChecklistItemForm(title.value, checklist.id)">
+      <label>
+        <input type="text" class="form-control" #title/>
+      </label>
+      <button class="btn btn_green btn_phone-full">Add checklist item</button>
+    </form>
+    <ul>
+      <li *ngFor="let item of checklist.checklist_items">
+        {{item.title}}
+      </li>
+    </ul>
+  </li>
+
+</ul>

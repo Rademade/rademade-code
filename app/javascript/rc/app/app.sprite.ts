@@ -1,1 +1,1 @@
-import 'facebook.svg';
+import 'logo.svg';

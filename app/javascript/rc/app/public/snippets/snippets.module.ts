@@ -6,6 +6,7 @@ import { SnippetsResolver } from './snippets.resolver';
 
 import { snippetsRoutes } from './snippets.routes';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SnippetsApiService } from '@shared/services/api/snippets.api.service';
 
 @NgModule({
   imports: [
@@ -18,10 +19,11 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     SnippetsComponent
   ],
   providers: [
+    SnippetsApiService,
     SnippetsResolver
   ],
   exports: [
     RouterModule
   ]
 })
-export class PublicSnippetsModule { }
+export class SnippetsModule { }

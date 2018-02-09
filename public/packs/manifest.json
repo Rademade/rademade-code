@@ -1,11 +1,10 @@
 {
-  "Admin.js": "http://0.0.0.0:8080/packs/Admin-chunk.45e96e8adbe0eef245f2.js",
-  "AdminSnippets.js": "http://0.0.0.0:8080/packs/AdminSnippets-chunk.45e96e8adbe0eef245f2.js",
-  "AdminUsers.js": "http://0.0.0.0:8080/packs/AdminUsers-chunk.45e96e8adbe0eef245f2.js",
-  "Public.js": "http://0.0.0.0:8080/packs/Public-chunk.45e96e8adbe0eef245f2.js",
-  "PublicHome.js": "http://0.0.0.0:8080/packs/PublicHome-chunk.45e96e8adbe0eef245f2.js",
-  "PublicSnippets.js": "http://0.0.0.0:8080/packs/PublicSnippets-chunk.45e96e8adbe0eef245f2.js",
-  "Sign.js": "http://0.0.0.0:8080/packs/Sign-chunk.45e96e8adbe0eef245f2.js",
+  "ChecklistsModule.js": "http://0.0.0.0:8080/packs/ChecklistsModule-chunk.bb8411655a43d0f5c66c.js",
+  "PublicHome.js": "http://0.0.0.0:8080/packs/PublicHome-chunk.bb8411655a43d0f5c66c.js",
+  "PublicModule.js": "http://0.0.0.0:8080/packs/PublicModule-chunk.bb8411655a43d0f5c66c.js",
+  "SignModule.js": "http://0.0.0.0:8080/packs/SignModule-chunk.bb8411655a43d0f5c66c.js",
+  "SnippetsModule.js": "http://0.0.0.0:8080/packs/SnippetsModule-chunk.bb8411655a43d0f5c66c.js",
+  "UsersModule.js": "http://0.0.0.0:8080/packs/UsersModule-chunk.bb8411655a43d0f5c66c.js",
   "polyfills.js": "http://0.0.0.0:8080/packs/polyfills.js",
   "rc.js": "http://0.0.0.0:8080/packs/rc.js"
 }

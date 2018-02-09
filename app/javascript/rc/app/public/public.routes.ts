@@ -12,7 +12,11 @@ export const publicRoutes: Routes = [
       },
       {
         path: 'snippets',
-        loadChildren: 'public/snippets/snippets.module.ts#PublicSnippetsModule?chunkName=PublicSnippets'
+        loadChildren: 'public/snippets/snippets.module.ts#SnippetsModule?chunkName=SnippetsModule'
+      },
+      {
+        path: 'checklists',
+        loadChildren: 'public/checklists/checklists.module.ts#ChecklistsModule?chunkName=ChecklistsModule'
       }
     ]
   },

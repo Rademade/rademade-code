@@ -1,5 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-
+import { Component, ViewEncapsulation } from '@angular/core';
 import * as sprite from './app.sprite';
 
 
@@ -10,10 +9,6 @@ import * as sprite from './app.sprite';
   styleUrls: ['@shared/styles/_import.css']
 })
 
-export class AppComponent {
-  constructor() {
-
-  }
-}
+export class AppComponent {}
 
 export default sprite;

@@ -6,8 +6,11 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
 import { AppComponent } from 'app.component';
 import { AppStore } from 'app.store';
 import { AuthModule } from 'auth.module';
-import { AuthGuard, AuthService, SignService } from 'services';
 import { AppRoutingModule } from "./app.routing";
+import { AuthGuard } from '@shared/guards/auth.guard';
+import { AuthService } from '@shared/services/auth.service';
+import { SignApiService } from '@shared/services/api/sign.api.service';
+import { CurrentUserService } from '@shared/services/current-user.service';
 
 @NgModule({
 
@@ -22,7 +25,8 @@ import { AppRoutingModule } from "./app.routing";
     AppStore,
     AuthGuard,
     AuthService,
-    SignService
+    SignApiService,
+    CurrentUserService
   ],
 
   declarations: [

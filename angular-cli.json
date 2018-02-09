@@ -5,7 +5,7 @@
   },
   "apps": [
     {
-      "root": "app/javascript/rc/app",
+      "root": "app/javascript/rc",
       "outDir": "app/javascript/rc/dist",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -23,6 +23,8 @@
   ],
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {
+      "spec": false
+    }
   }
 }

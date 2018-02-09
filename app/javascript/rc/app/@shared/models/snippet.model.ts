@@ -1,4 +1,4 @@
-export class Snippet {
+export class SnippetModel {
   id: number;
   title: string;
   description: string;

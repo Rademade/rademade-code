@@ -4,18 +4,16 @@ import { RouterModule } from '@angular/router';
 import { PublicComponent } from 'public/public.component';
 import { publicRoutes } from 'public/public.routes';
 import { CommonModule } from '@angular/common';
-import { SnippetsService } from 'services';
+import { HeaderModule } from 'public/@shared/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    HeaderModule,
     RouterModule.forChild(publicRoutes)
   ],
   declarations: [
     PublicComponent
-  ],
-  providers: [
-    SnippetsService,
   ],
   exports: [
     RouterModule

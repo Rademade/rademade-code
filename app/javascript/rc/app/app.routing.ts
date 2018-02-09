@@ -5,15 +5,15 @@ import { NgModule } from '@angular/core';
 const appRoutes: Routes = [
   {
     path: '',
-    loadChildren: './public/public.module.ts#PublicModule?chunkName=Public'
+    loadChildren: './public/public.module.ts#PublicModule?chunkName=PublicModule'
   },
   {
     path: 'sign',
-    loadChildren: './sign/sign.module.ts#SignModule?chunkName=Sign'
+    loadChildren: './sign/sign.module.ts#SignModule?chunkName=SignModule'
   },
   {
-    path: 'admin',
-    loadChildren: './admin/admin.module.ts#AdminModule?chunkName=Admin'
+    path: 'users',
+    loadChildren: './users/users.module.ts#UsersModule?chunkName=UsersModule'
   }
 ];
 

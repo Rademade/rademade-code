@@ -1,9 +1,41 @@
+<form class="form"
+      [formGroup]="createSnippetForm"
+      (ngSubmit)="onSubmit()"
+      *ngIf="authService.isLoggedIn()">
+  <label>
+    <input type="text" class="form-control" formControlName="title"/>
+  </label>
+  <label>
+    <input type="text" class="form-control" formControlName="description"/>
+  </label>
+  <label>
+    <input type="text" class="form-control" formControlName="sref"/>
+  </label>
+  <button class="btn btn_green btn_phone-full">Add snippet</button>
+</form>
+
 <ul>
   <li *ngFor="let snippet of snippets">
+    <form class="form"
+         [formGroup]="updateSnippetForm"
+         (ngSubmit)="updateSnippet(snippet.id)"
+          *ngIf="authService.isLoggedIn()">
+      <label>
+        <input type="text" class="form-control" formControlName="title" [attr.value]="snippet.title"/>
+      </label>
+      <label>
+        <input type="text" class="form-control" formControlName="description" [attr.value]="snippet.description"/>
+      </label>
+      <label>
+        <input type="text" class="form-control" formControlName="sref" [attr.value]="snippet.sref"/>
+      </label>
+      <button class="btn btn_green btn_phone-full">Update snippet</button>
+    </form>
     <p>{{ snippet.id }}</p>
     <p>{{ snippet.title }}</p>
     <p>{{ snippet.description }}</p>
     <a href="#">{{ snippet.sref }}</a>
     <p>{{ snippet.user.name }}</p>
+    <button (click)="destroySnippet(snippet.id)">Destroy Snippet</button>
   </li>
 </ul>
