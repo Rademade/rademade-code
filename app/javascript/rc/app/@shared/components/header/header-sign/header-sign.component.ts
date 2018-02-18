@@ -13,13 +13,12 @@ import { AuthService } from '@shared/services/auth.service';
 
 export class HeaderSignComponent implements OnInit {
   public form: FormGroup;
+  public toggleFormState: boolean = false;
 
   constructor(
     private signApiService: SignApiService,
     private http: Http,
     private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
   ) {
   }
 
@@ -40,5 +39,9 @@ export class HeaderSignComponent implements OnInit {
         console.log(e)
       }
     );
+  }
+
+  toggleForm() {
+    this.toggleFormState = !this.toggleFormState;
   }
 }

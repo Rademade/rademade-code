@@ -1,3 +1,6 @@
-<label>
-  <input [attr.type]="'text'" [(ngModel)]="value" [(value)]="value"/>
+<label class="form-input__data">
+  <input class="form-input__value" [attr.type]="type" [(ngModel)]="value" [(value)]="value" [attr.placeholder]="label"/>
+  <span class="form-input__box">
+    <span class="form-input__label">{{ label }}</span>
+  </span>
 </label>

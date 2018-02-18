@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { UsersComponent } from './users.component';
-import { UsersResolver } from './users.resolver';
 import { usersRoutes } from './users.routes';
 import { UserApiService } from '@shared/services/api/user.api.service';
 import { CurrentUserService } from '@shared/services/current-user.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormInputModule } from '@shared/components/form-input/form-input.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    FormInputModule,
+    ReactiveFormsModule,
     RouterModule.forChild(usersRoutes),
   ],
   declarations: [
@@ -20,8 +22,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     UserApiService,
-    CurrentUserService,
-    UsersResolver
+    CurrentUserService
   ],
   exports: [
     RouterModule

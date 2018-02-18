@@ -1,43 +1,36 @@
 <h1>Snippets</h1>
 
-<form class="form"
-      [formGroup]="createSnippetForm"
-      (ngSubmit)="onSubmit()"
-      *ngIf="authService.isLoggedIn()">
-  <label>
-    <input type="text" class="form-control" formControlName="title"/>
-  </label>
-  <label>
-    <input type="text" class="form-control" formControlName="description"/>
-  </label>
-  <label>
-    <input type="text" class="form-control" formControlName="sref"/>
-  </label>
-  <button class="btn btn_green btn_phone-full">Add snippet</button>
-</form>
+<div class="global-form" *ngIf="authService.isLoggedIn() && toggleFormState">
+  <form class="global-form__data" [formGroup]="snippetsForm">
+    <h2>Link Form</h2>
+    <rc-form-input formControlName="title" label="Snippet title"></rc-form-input>
+    <rc-form-input formControlName="description" label="Snippet description"></rc-form-input>
+    <rc-form-input formControlName="sref" label="Snippet sref"></rc-form-input>
+    <div class="global-form__actions">
+      <div class="global-form__box">
+        <button *ngIf="!editMode" (click)="addSnippet()">Add snippet</button>
+      </div>
+      <div class="global-form__box">
+        <button *ngIf="editMode" (click)="updateSnippet()">Update snippet</button>
+      </div>
+      <div class="global-form__box">
+        <button (click)="toggleForm();cancelForm()" class="button-link button-link__gray">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+<button class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>
 
-<ul>
-  <li *ngFor="let snippet of snippets">
-    <form class="form"
-         [formGroup]="updateSnippetForm"
-         (ngSubmit)="updateSnippet(snippet.id)"
-          *ngIf="authService.isLoggedIn()">
-      <label>
-        <input type="text" class="form-control" formControlName="title" [attr.value]="snippet.title"/>
-      </label>
-      <label>
-        <input type="text" class="form-control" formControlName="description" [attr.value]="snippet.description"/>
-      </label>
-      <label>
-        <input type="text" class="form-control" formControlName="sref" [attr.value]="snippet.sref"/>
-      </label>
-      <button class="btn btn_green btn_phone-full">Update snippet</button>
-    </form>
-    <p>{{ snippet.id }}</p>
-    <p>{{ snippet.title }}</p>
-    <p>{{ snippet.description }}</p>
-    <a href="#">{{ snippet.sref }}</a>
-    <p>{{ snippet.user.name }}</p>
-    <button (click)="destroySnippet(snippet.id)">Destroy Snippet</button>
+<ul class="snippets__list">
+  <li class="snippets__item" *ngFor="let snippet of snippets; let index = index">
+    <div class="snippets__box">
+      <p class="snippets__title">{{ snippet.title }}</p>
+      <p class="snippets__description">{{ snippet.description }}</p>
+      <a class="snippets__link" [attr.href]="snippet.sref">Watch</a>
+      <span class="snippets__actions" *ngIf="authService.isLoggedIn()">
+        <button class="button-link" type="button" (click)="editSnippet(snippet.id, index)"><i class="material-icons">edit</i></button>
+        <button class="button-link button-link__red" type="button" (click)="destroySnippet(snippet.id, index)"><i class="material-icons">delete</i></button>
+      </span>
+    </div>
   </li>
 </ul>

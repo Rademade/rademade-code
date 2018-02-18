@@ -1,10 +1,21 @@
 :host {
 	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .header-sign__form {
 	position: absolute;
 	top: 100%;
 	right: 0;
+	padding: 20px 25px;
 	background: #fff;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,.11);
+	box-sizing: border-box;
+}
+
+.header-sign__link {
+	color: #27ae60;
+	font-weight: bold;
+	font-size: rem(16);
 }

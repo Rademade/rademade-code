@@ -1,0 +1,33 @@
+.snippets__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.snippets__item {
+  width: columns(3);
+  margin-bottom: 30px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.snippets__box {
+  position: relative;
+  background: #fff;
+  padding: 15px 60px 15px 20px;
+}
+
+.snippets__title {
+  font-size: rem(18);
+  font-weight: bold;
+}
+
+.snippets__description {
+  font-size: rem(16);
+}
+
+.snippets__actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}

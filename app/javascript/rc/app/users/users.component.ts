@@ -1,41 +1,71 @@
 import { Component , OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserModel } from '@shared/models/user.model';
-import { CurrentUserService } from '@shared/services/current-user.service';
+import { UserModel } from 'models';
+import { AuthService } from '@shared/services/auth.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserApiService } from '@shared/services/api/user.api.service';
 
 @Component({
   selector: 'rc-users',
-  templateUrl: './users.component.html'
+  templateUrl: './users.component.html',
+  styleUrls: ['.//users.component.css']
 })
 export class UsersComponent implements OnInit {
 
   private users: UserModel[];
-  private isAdmin: boolean;
+  private usersForm: FormGroup;
+  private currentIndex: number;
+  private currentId: number;
+  private editMode: boolean = false;
+  private toggleFormState: boolean = false;
 
   constructor(
     public usersService: UserApiService,
-    private activeRoute: ActivatedRoute,
-    private currentUserService: CurrentUserService
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
   ) {}
 
   ngOnInit() {
-    this.users = this.activeRoute.snapshot.data['users'];
-    this.isAdmin = this.currentUserService.getUser().is_admin;
+    this.getUsers();
+
+    this.usersForm = this.formBuilder.group({
+      name: '',
+      email: '',
+      password: ''
+    });
+
+  };
+
+  getUsers() {
+    this.usersService.index().subscribe((users) => {
+      this.users = users;
+    });
   }
 
-  updateUser(id: number, name: string, email: string) {
-    this.usersService.update(new UserModel({name: name, email: email}), id).subscribe(
-      (error) => console.log(error)
+  updateUser() {
+    this.usersService.update(this.usersForm.value, this.currentId).subscribe(
+      () => {
+        this.getUsers();
+        this.editMode = false;
+      }
     );
+    this.usersForm.reset();
+    this.toggleForm();
   }
 
+  editUser(id: number, index: number) {
+    this.currentIndex = index;
+    this.currentId = id;
+    this.editMode = true;
+    this.toggleForm();
+    this.usersForm.patchValue(this.users[this.currentIndex]);
+  }
 
-  addUser(name: string, email: string, password: string) {
-    this.usersService.create({name: name, email: email,password: password})
-      .subscribe((user) => {
-        this.users.push(user);
-      });
+  addUser() {
+    this.usersService.create(this.usersForm.value).subscribe((user) => {
+      this.users.push(user);
+    });
+    this.usersForm.reset();
+    this.toggleForm();
   }
 
   destroyUser(id: string, index: number) {
@@ -45,6 +75,14 @@ export class UsersComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  toggleForm() {
+    this.toggleFormState = !this.toggleFormState;
+  }
+
+  cancelForm() {
+    this.editMode = false;
   }
 
 }

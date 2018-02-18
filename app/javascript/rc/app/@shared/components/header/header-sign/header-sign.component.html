@@ -1,14 +1,12 @@
-<span class="header-sign__link">Login</span>
+<span class="header-sign__link" (click)="toggleForm()">Login</span>
 <form class="header-sign__form"
+      *ngIf="toggleFormState"
       [formGroup]="form"
       (ngSubmit)="onSubmit()">
 
-  <rc-form-input formControlName="email"></rc-form-input>
+  <rc-form-input formControlName="email" label="Email"></rc-form-input>
+  <rc-form-input formControlName="password" type="password" label="Password"></rc-form-input>
 
-  <label>
-    <input type="password" formControlName="password"/>
-  </label>
-
-  <button class="btn btn_green btn_phone-full">Sign In</button>
+  <button>Sign In</button>
 
 </form>

@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   private currentIndex: number;
   private currentId: number;
   private editMode: boolean = false;
+  private toggleFormState: boolean = false;
 
   constructor(
     public linksService: LinksApiService,
@@ -47,12 +48,14 @@ export class HomeComponent implements OnInit {
       }
     );
     this.linksForm.reset();
+    this.toggleForm();
   }
 
   editLink(id: number, index: number) {
     this.currentIndex = index;
     this.currentId = id;
     this.editMode = true;
+    this.toggleForm();
     this.linksForm.patchValue(this.links[this.currentIndex]);
   }
 
@@ -61,6 +64,7 @@ export class HomeComponent implements OnInit {
       this.links.push(link);
     });
     this.linksForm.reset();
+    this.toggleForm();
   }
 
   destroyLink(id: string, index: number) {
@@ -70,5 +74,12 @@ export class HomeComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  toggleForm() {
+    this.toggleFormState = !this.toggleFormState;
+  }
+  cancelForm() {
+    this.editMode = false;
   }
 }

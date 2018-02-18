@@ -1,5 +1,2 @@
-<div class="header-user__data">
-  <p class="header-user__name">{{currentUserService.getUser().email}}</p>
-  <p class="header-user__name">{{currentUserService.getUser().name}}</p>
-  <span (click)="logoutHeader()">Logout</span>
-</div>
+<p class="header-user__name">{{currentUserService.getUser().email}}</p>
+<span class="header-user__link button-link button-link__red" (click)="logoutHeader()">Logout</span>

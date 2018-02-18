@@ -1,0 +1,16 @@
+:host {
+	display: flex;
+	align-items: center;
+}
+.header-user__name {
+	color: #333;
+	font-weight: bold;
+	font-size: rem(16);
+	line-height: lh(19,16);
+}
+.header-user__link {
+	margin-left: 15px;
+	font-size: rem(16);
+	font-weight: bold;
+	line-height: lh(19,16);
+}

@@ -16,6 +16,7 @@
   color: #27ae60;
   opacity: .8;
   align-items: center;
+  font-weight: bold;
   font-size: rem(16);
   line-height: lh(21,16);
   letter-spacing: .5px;

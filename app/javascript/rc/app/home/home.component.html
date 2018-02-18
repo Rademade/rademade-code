@@ -1,16 +1,31 @@
 <h1>Welcome to Rademade Code!</h1>
 
-<form [formGroup]="linksForm" *ngIf="authService.isLoggedIn()">
-	<rc-form-input formControlName="title"></rc-form-input>
-	<rc-form-input formControlName="href"></rc-form-input>
-	<button *ngIf="!editMode" (click)="addLink()">Add link</button>
-	<button *ngIf="editMode" (click)="updateLink()">Update link</button>
-</form>
+<div class="global-form" *ngIf="authService.isLoggedIn() && toggleFormState">
+	<form class="global-form__data" [formGroup]="linksForm">
+		<h2>Link Form</h2>
+		<rc-form-input formControlName="title" label="Link title"></rc-form-input>
+		<rc-form-input formControlName="href" label="Link href"></rc-form-input>
+		<div class="global-form__actions">
+			<div class="global-form__box">
+				<button *ngIf="!editMode" (click)="addLink()">Add link</button>
+			</div>
+			<div class="global-form__box">
+				<button *ngIf="editMode" (click)="updateLink()">Update link</button>
+			</div>
+			<div class="global-form__box">
+				<button (click)="toggleForm();cancelForm()" class="button-link button-link__gray">Cancel</button>
+			</div>
+		</div>
+	</form>
+</div>
+<button class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>
 
 <ul class="links">
 	<li class="links__item" *ngFor="let link of links; let index = index">
-		<a class="links__val">{{ link.title }}</a>
-		<button type="button" (click)="editLink(link.id, index)"><i class="material-icons">edit</i></button>
-		<button type="button" (click)="destroyLink(link.id, index)"><i class="material-icons">delete</i></button>
+		<a [attr.href]="link.href" class="links__val" target="_blank">{{index + 1}}. {{ link.title }}</a>
+		<span class="links__actions" *ngIf="authService.isLoggedIn()">
+			<button class="button-link" type="button" (click)="editLink(link.id, index)"><i class="material-icons">edit</i></button>
+			<button class="button-link button-link__red" type="button" (click)="destroyLink(link.id, index)"><i class="material-icons">delete</i></button>
+		</span>
 	</li>
 </ul>
