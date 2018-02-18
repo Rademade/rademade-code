@@ -17,6 +17,8 @@ gem 'simple_command'
 gem 'webpacker', '~> 3.0'
 gem 'rabl'
 gem 'oj'
+gem 'sass-rails'
+gem 'normalize-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
@@ -43,6 +45,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

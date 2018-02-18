@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <base href="/">
-  <title>Angular With Webpack</title>
+  <head>
+    <base href="/">
+    <title>Rademade Code</title>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+    <meta charset="UTF-8">
+    <%= stylesheet_link_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
 
-<body>
-  <%= yield %>
-  <%= javascript_pack_tag 'polyfills', defer: true %>
-  <%= javascript_pack_tag 'rc', defer: true %>
-</body>
+  <body>
+    <%= yield %>
+  </body>
+
 </html>

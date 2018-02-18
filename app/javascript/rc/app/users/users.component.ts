@@ -6,8 +6,7 @@ import { UserApiService } from '@shared/services/api/user.api.service';
 
 @Component({
   selector: 'rc-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  templateUrl: './users.component.html'
 })
 export class UsersComponent implements OnInit {
 
@@ -23,7 +22,6 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.users = this.activeRoute.snapshot.data['users'];
     this.isAdmin = this.currentUserService.getUser().is_admin;
-    console.log(this.currentUserService.getUser());
   }
 
   updateUser(id: number, name: string, email: string) {

@@ -1,12 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import * as sprite from './app.sprite';
-
 
 @Component({
   selector: 'rc-app',
-  encapsulation: ViewEncapsulation.None,
-  template: '<router-outlet></router-outlet>',
-  styleUrls: ['@shared/styles/_import.css']
+  templateUrl: 'app.component.html'
 })
 
 export class AppComponent {}

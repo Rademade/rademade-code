@@ -1,0 +1,10 @@
+:host {
+	position: relative;
+}
+
+.header-sign__form {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background: #fff;
+}

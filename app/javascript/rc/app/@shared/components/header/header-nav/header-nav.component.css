@@ -1,0 +1,41 @@
+.header-nav__data {
+  display: flex;
+  margin: 0 -10px;
+}
+
+.header-nav__item {
+  display: inline-block;
+  padding: 0 10px;
+  vertical-align: middle;
+}
+
+.header-nav__link {
+  position: relative;
+  display: flex;
+  height: 60px;
+  color: #27ae60;
+  opacity: .8;
+  align-items: center;
+  font-size: rem(16);
+  line-height: lh(21,16);
+  letter-spacing: .5px;
+
+  &:after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background: #27ae60;
+  }
+
+}
+
+.header-nav__link--active {
+  opacity: 1;
+
+  &:after {
+    content: '';
+  }
+
+}

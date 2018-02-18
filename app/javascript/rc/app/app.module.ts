@@ -11,6 +11,7 @@ import { AuthGuard } from '@shared/guards/auth.guard';
 import { AuthService } from '@shared/services/auth.service';
 import { SignApiService } from '@shared/services/api/sign.api.service';
 import { CurrentUserService } from '@shared/services/current-user.service';
+import { HeaderModule } from '@shared/components/header/header.module';
 
 @NgModule({
 
@@ -19,6 +20,7 @@ import { CurrentUserService } from '@shared/services/current-user.service';
     AuthModule,
     BrowserModule,
     HttpModule,
+    HeaderModule
   ],
 
   providers: [

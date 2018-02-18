@@ -1,0 +1,14 @@
+<span class="header-sign__link">Login</span>
+<form class="header-sign__form"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+
+  <rc-form-input formControlName="email"></rc-form-input>
+
+  <label>
+    <input type="password" formControlName="password"/>
+  </label>
+
+  <button class="btn btn_green btn_phone-full">Sign In</button>
+
+</form>

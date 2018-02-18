@@ -1,0 +1,16 @@
+<div class="fix">
+  <div class="header__data">
+    <div class="header__box">
+      <a [routerLink]="['/']" class="header__logo">
+        <svg class="svg-ico">
+          <use xlink:href="#logo"></use>
+        </svg>
+      </a>
+    </div>
+    <div class="header__box" >
+      <rc-header-nav class="header-nav"></rc-header-nav>
+      <rc-header-user *ngIf="authService.isLoggedIn()" class="header-user"></rc-header-user>
+      <rc-header-sign *ngIf="!authService.isLoggedIn()" class="header-sign"></rc-header-sign>
+    </div>
+  </div>
+</div>
