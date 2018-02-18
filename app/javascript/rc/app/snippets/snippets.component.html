@@ -26,7 +26,7 @@
     <div class="snippets__box">
       <p class="snippets__title">{{ snippet.title }}</p>
       <p class="snippets__description">{{ snippet.description }}</p>
-      <a class="snippets__link" [attr.href]="snippet.sref">Watch</a>
+      <a class="snippets__link" [attr.href]="snippet.sref" target="_blank">Watch</a>
       <span class="snippets__actions" *ngIf="authService.isLoggedIn()">
         <button class="button-link" type="button" (click)="editSnippet(snippet.id, index)"><i class="material-icons">edit</i></button>
         <button class="button-link button-link__red" type="button" (click)="destroySnippet(snippet.id, index)"><i class="material-icons">delete</i></button>
