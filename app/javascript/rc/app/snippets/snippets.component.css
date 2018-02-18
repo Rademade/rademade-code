@@ -13,16 +13,20 @@
 
 .snippets__box {
   position: relative;
+  min-height: 100%;
   background: #fff;
   padding: 15px 60px 15px 20px;
+  box-sizing: border-box;
 }
 
 .snippets__title {
+  margin-bottom: 3px;
   font-size: rem(18);
   font-weight: bold;
 }
 
 .snippets__description {
+  margin-bottom: 10px;
   font-size: rem(16);
 }
 
