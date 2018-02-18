@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChecklistModel } from 'models';
-import { ActivatedRoute } from '@angular/router';
 import { ChecklistsApiService } from '@shared/services/api/checklists.api.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
   selector: 'rc-checklists',
@@ -10,48 +10,78 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ChecklistsComponent implements OnInit {
   private checklists: ChecklistModel[];
-  private createChecklistForm: FormGroup;
+  private checklistsForm: FormGroup;
+
+  private currentIndex: number;
+  private currentId: number;
+  private editMode: boolean = false;
 
   constructor(
-    private activeRoute: ActivatedRoute,
     private checklistsApiService: ChecklistsApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.checklistsApiService.index()
-      .subscribe((checklists) => {
-        this.checklists = checklists;
-      });
-
-    this.createChecklistForm = this.formBuilder.group({
+    this.getChecklists();
+    this.checklistsForm = this.formBuilder.group({
       title: '',
     });
 
   }
 
-  onSubmit() {
-    this.checklistsApiService.create(this.createChecklistForm.value)
-      .subscribe((snippet) => {
-        this.checklists.push(snippet);
+  getChecklists() {
+    this.checklistsApiService.index()
+      .subscribe((checklists) => {
+        this.checklists = checklists;
       });
   }
 
-  onCreateChecklistItemForm(title: string, checklistId: number) {
+  updateChecklist() {
+    this.checklistsApiService.update(this.checklistsForm.value, this.currentId).subscribe(
+      () => {
+        this.getChecklists();
+        this.editMode = false;
+      }
+    );
+    this.checklistsForm.reset();
+  }
+
+  editChecklist(id: number, index: number) {
+    this.currentIndex = index;
+    this.currentId = id;
+    this.editMode = true;
+    this.checklistsForm.patchValue(this.checklists[this.currentIndex]);
+  }
+
+  addChecklist() {
+    this.checklistsApiService.create(this.checklistsForm.value).subscribe((link) => {
+      this.checklists.push(link);
+    });
+    this.checklistsForm.reset();
+  }
+
+  destroyChecklist(id: string, index: number) {
+    if (confirm("Press a button!") == true) {
+      this.checklists.splice(index, 1);
+      this.checklistsApiService.destroy(id).subscribe();
+    } else {
+      return false;
+    }
+  }
+
+  addChecklistItem(title: string, checklistId: number) {
     this.checklistsApiService.createItem( checklistId,{title: title, checklist_id: checklistId})
-      .subscribe(
-        checklistItems =>
-          this.checklists[checklistId - 1].checklist_items.push(checklistItems)
+      .subscribe(() => this.getChecklists());
+  }
+
+  destroyChecklistItem(checklistId, id: string) {
+    if (confirm("Press a button!") == true) {
+      this.checklistsApiService.destroyItem(checklistId, id).subscribe(() =>
+        this.getChecklists()
       );
-  }
-
-  updateSnippet(id: number) {
-    this.checklistsApiService.update(this.createChecklistForm.value, id)
-      .subscribe((error) => console.log(error));
-  }
-
-  destroySnippet(id: number) {
-    this.checklistsApiService.destroy(id)
-      .subscribe((snippet) => snippet.slice(-1, id));
+    } else {
+      return false;
+    }
   }
 }

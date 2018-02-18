@@ -33,7 +33,6 @@ export class HeaderSignComponent implements OnInit {
   onSubmit() {
     this.signApiService.signIn(this.form.value).subscribe(
       (res) => {
-        console.log('Response' + res);
         localStorage.setItem('token', res['auth_token']);
         localStorage.setItem('userInfo', JSON.stringify({email: res['user']}));
       },

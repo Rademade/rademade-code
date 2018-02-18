@@ -1,6 +1,7 @@
 <ul class="header-nav__data">
   <li class="header-nav__item" *ngFor="let headerNavItem of headerNavItemList">
     <a class="header-nav__link"
+       *ngIf="headerNavItem.state"
        [routerLink]="headerNavItem.link"
        [routerLinkActive]="'header-nav__link--active'"
        [routerLinkActiveOptions]="{exact: true}">

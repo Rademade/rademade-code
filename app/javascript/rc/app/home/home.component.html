@@ -1,1 +1,16 @@
-<p>Home Page</p>
+<h1>Welcome to Rademade Code!</h1>
+
+<form [formGroup]="linksForm" *ngIf="authService.isLoggedIn()">
+	<rc-form-input formControlName="title"></rc-form-input>
+	<rc-form-input formControlName="href"></rc-form-input>
+	<button *ngIf="!editMode" (click)="addLink()">Add link</button>
+	<button *ngIf="editMode" (click)="updateLink()">Update link</button>
+</form>
+
+<ul class="links">
+	<li class="links__item" *ngFor="let link of links; let index = index">
+		<a class="links__val">{{ link.title }}</a>
+		<button type="button" (click)="editLink(link.id, index)"><i class="material-icons">edit</i></button>
+		<button type="button" (click)="destroyLink(link.id, index)"><i class="material-icons">delete</i></button>
+	</li>
+</ul>

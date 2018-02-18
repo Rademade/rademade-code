@@ -13,4 +13,18 @@ export class ChecklistsApiService extends BaseApiService {
       }
     );
   }
+  destroyItem(checklistId,id) {
+    return this.http.delete(this.apiUrl + this.modelUrl + '/' + checklistId + '/' + 'checklist_items'+ '/' + id).map(
+      (response: Response) => {
+        return response.json();
+      }
+    );
+  }
+  updateItem(options: {}, id: number, checklistId) {
+    return this.http.put(this.apiUrl + this.modelUrl + '/' + checklistId + '/' + 'checklist_items'+ '1' + id, options).map(
+      (response: Response) => {
+        return response.json();
+      },
+    );
+  }
 }

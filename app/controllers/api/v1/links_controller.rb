@@ -1,29 +1,34 @@
 module Api
   module V1
     class LinksController < ApplicationController
-      before_action :set_link, only: [:show]
       before_action :authenticate_request, except: [:index, :show]
-
       def index
-        respond_to do |links|
-          links.json { render json: Link.all }
-        end
+        @links = Link.all
+      end
+      def show
+        @link = link
+      end
+      def create
+        @link = Link.create!(link_params)
       end
 
-      def show
-        render json: @link
+      def update
+        link.update!(link_params)
+      end
+
+      def destroy
+        link.destroy
       end
 
       private
-
-      def set_link
-        @link = Link.find(params[:id])
+      def link
+        Link.find(params[:id])
       end
-
-      # Only allow a trusted parameter "white list" through.
       def link_params
         params.require(:link).permit(:title, :href)
       end
     end
+
   end
 end
+

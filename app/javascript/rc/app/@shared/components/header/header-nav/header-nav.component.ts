@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentUserService } from '@shared/services/current-user.service';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
   selector: 'rc-header-nav',
@@ -7,27 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderNavComponent implements OnInit {
   private headerNavItemList: Array<Object>;
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private currentUserService: CurrentUserService
+  ) { }
 
   ngOnInit() {
     this.headerNavItemList = [
       {
         link: ['/'],
-        text: 'Home'
+        text: 'Home',
+        state: true
       },
       {
         link: ['/checklists'],
-        text: 'Checklists'
+        text: 'Checklists',
+        state: true
       },
       {
         link: ['/snippets'],
-        text: 'Snippets'
+        text: 'Snippets',
+        state: true
       },
       {
         link: ['/users'],
-        text: 'Users'
+        text: 'Users',
+        state: this.getSuperAdminStatus()
       }
     ]
+  }
+
+  getSuperAdminStatus() {
+    if (this.authService.isLoggedIn()) {
+      return this.currentUserService.getUser().is_admin;
+    }
+    else {
+      return false;
+    }
   }
 
 }

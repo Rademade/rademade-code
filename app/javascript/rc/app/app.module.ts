@@ -49,7 +49,6 @@ export class AppModule {
     if (!store || !store.state) {
       return;
     }
-    console.log('HMR store', JSON.stringify(store, null, 2));
     // restore state
     this.appStore.setState(store.state);
     // restore input values

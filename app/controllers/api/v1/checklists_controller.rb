@@ -13,7 +13,7 @@ module Api
       end
 
       def update
-        checklist.update!(snippet_params)
+        checklist.update!(checklist_params)
       end
 
       def destroy
@@ -24,6 +24,7 @@ module Api
       def checklist
         Checklist.find(params[:id])
       end
+
       def checklist_params
         params.require(:checklist).permit(:title)
       end

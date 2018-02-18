@@ -7,11 +7,13 @@ import { checklistsRoutes } from 'checklists/checklists.routes';
 import { ChecklistsApiService } from '@shared/services/api/checklists.api.service';
 import { ChecklistsItemApiService } from '@shared/services/api/checklists-item.api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormInputModule } from '@shared/components/form-input/form-input.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    FormInputModule,
     ReactiveFormsModule,
     RouterModule.forChild(checklistsRoutes)
   ],

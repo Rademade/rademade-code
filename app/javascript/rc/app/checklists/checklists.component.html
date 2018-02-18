@@ -1,26 +1,27 @@
-<script src="checklists.component.ts"></script>
-<form class="form"
-      [formGroup]="createChecklistForm"
-      (ngSubmit)="onSubmit()">
-  <label>
-    <input type="text" class="form-control" formControlName="title"/>
-  </label>
-  <button class="btn btn_green btn_phone-full">Add checklist</button>
+<h1>Checklists</h1>
+
+<form class="form" [formGroup]="checklistsForm" *ngIf="authService.isLoggedIn()">
+  <rc-form-input formControlName="title"></rc-form-input>
+  <button *ngIf="!editMode" (click)="addChecklist()">Add checklist</button>
+  <button *ngIf="editMode" (click)="updateChecklist()">Update checklist</button>
 </form>
 
 <ul>
-  <li *ngFor="let checklist of checklists">
-    <p>{{ checklist.title }}</p>
-    <form class="form"
-          (ngSubmit)="onCreateChecklistItemForm(title.value, checklist.id)">
-      <label>
-        <input type="text" class="form-control" #title/>
-      </label>
-      <button class="btn btn_green btn_phone-full">Add checklist item</button>
+  <li *ngFor="let checklist of checklists; let index = index">
+    <p>
+      {{ checklist.title }}
+      <button type="button" (click)="editChecklist(checklist.id, index)"><i class="material-icons">edit</i></button>
+      <button type="button" (click)="destroyChecklist(checklist.id, index)"><i class="material-icons">delete</i></button>
+    </p>
+
+    <form class="form" *ngIf="authService.isLoggedIn()">
+      <rc-form-input #title></rc-form-input>
+      <button (click)="addChecklistItem(title.value, checklist.id)">Add checklist item</button>
     </form>
     <ul>
       <li *ngFor="let item of checklist.checklist_items">
         {{item.title}}
+        <button type="button" (click)="destroyChecklistItem(checklist.id, item.id)"><i class="material-icons">delete</i></button>
       </li>
     </ul>
   </li>
