@@ -1,10 +1,20 @@
 <h1>Checklists</h1>
 
-<form class="form" [formGroup]="checklistsForm" *ngIf="authService.isLoggedIn()">
-  <rc-form-input formControlName="title"></rc-form-input>
-  <button *ngIf="!editMode" (click)="addChecklist()">Add checklist</button>
-  <button *ngIf="editMode" (click)="updateChecklist()">Update checklist</button>
-</form>
+<!--<div class="global-form" *ngIf="authService.isLoggedIn() && toggleFormState">-->
+  <form class="form" [formGroup]="checklistsForm" *ngIf="authService.isLoggedIn()">
+    <rc-form-input formControlName="title" label="Checklist title"></rc-form-input>
+    <button *ngIf="!editMode" (click)="addChecklist()">Add checklist</button>
+    <button *ngIf="editMode" (click)="updateChecklist()">Update checklist</button>
+    <div formArrayName="checklist_items">
+      <div *ngFor="let item of checklist_items.controls; let index = index; let last = last;" [formGroupName]="index">
+        <rc-form-input label="Item title" formControlName='title'></rc-form-input>
+        <button *ngIf="!last" type="button" (click)="removeChecklistItemControl(index)" class="">&ndash;</button>
+        <button *ngIf="last" type="button" (click)="addChecklistControl()" class="">+</button>
+      </div>
+    </div>
+    {{checklistsForm.value | json}}
+  </form>
+<!--</div>-->
 
 <ul>
   <li *ngFor="let checklist of checklists; let index = index">
@@ -13,16 +23,8 @@
       <button type="button" (click)="editChecklist(checklist.id, index)"><i class="material-icons">edit</i></button>
       <button type="button" (click)="destroyChecklist(checklist.id, index)"><i class="material-icons">delete</i></button>
     </p>
-
-    <form class="form" *ngIf="authService.isLoggedIn()">
-      <rc-form-input #title></rc-form-input>
-      <button (click)="addChecklistItem(title.value, checklist.id)">Add checklist item</button>
-    </form>
     <ul>
-      <li *ngFor="let item of checklist.checklist_items">
-        {{item.title}}
-        <button type="button" (click)="destroyChecklistItem(checklist.id, item.id)"><i class="material-icons">delete</i></button>
-      </li>
+      <li *ngFor="let item of checklist.checklist_items">{{item.title}}</li>
     </ul>
   </li>
 

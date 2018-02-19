@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { ChecklistsComponent } from 'checklists/checklists.component';
 import { checklistsRoutes } from 'checklists/checklists.routes';
 import { ChecklistsApiService } from '@shared/services/api/checklists.api.service';
-import { ChecklistsItemApiService } from '@shared/services/api/checklists-item.api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormInputModule } from '@shared/components/form-input/form-input.module';
 
@@ -21,8 +20,7 @@ import { FormInputModule } from '@shared/components/form-input/form-input.module
     ChecklistsComponent
   ],
   providers: [
-    ChecklistsApiService,
-    ChecklistsItemApiService
+    ChecklistsApiService
   ]
 })
 
