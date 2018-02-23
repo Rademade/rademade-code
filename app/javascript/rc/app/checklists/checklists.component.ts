@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { ChecklistItemModel, ChecklistModel } from 'models';
 import { ChecklistsApiService } from '@shared/services/api/checklists.api.service';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
@@ -8,13 +8,14 @@ import { AuthService } from '@shared/services/auth.service';
   selector: 'rc-checklists',
   templateUrl: './checklists.component.html'
 })
-export class ChecklistsComponent implements OnInit {
+export class ChecklistsComponent implements OnInit, OnChanges {
   private checklists: ChecklistModel[];
-  private checklistsForm: FormGroup;
+  public checklistsForm: FormGroup;
 
   private currentIndex: number;
   private currentId: number;
   private editMode: boolean = false;
+  private toggleFormState: boolean = false;
 
   constructor(
     private checklistsApiService: ChecklistsApiService,
@@ -31,6 +32,7 @@ export class ChecklistsComponent implements OnInit {
       ])
     });
   }
+
 
   getChecklists() {
     this.checklistsApiService.index()
@@ -59,20 +61,21 @@ export class ChecklistsComponent implements OnInit {
   }
 
   updateChecklist() {
+    this.toggleForm();
     this.checklistsApiService.update(this.checklistsForm.value, this.currentId).subscribe(
       () => {
         this.getChecklists();
         this.editMode = false;
       }
     );
-    this.checklistsForm.reset();
+    this.ngOnChanges();
   }
 
   editChecklist(id: number, index: number) {
+    this.toggleForm();
     this.currentIndex = index;
     this.currentId = id;
     this.editMode = true;
-    console.log(this.checklists[this.currentIndex]);
     this.checklistsForm.setControl('checklist_items', this.formBuilder.array(
       this.checklists[this.currentIndex].checklist_items.map(() => {
         return this.formBuilder.group(new ChecklistItemModel());
@@ -82,10 +85,11 @@ export class ChecklistsComponent implements OnInit {
   }
 
   addChecklist() {
+    this.toggleForm();
     this.checklistsApiService.create(this.checklistsForm.value).subscribe((link) => {
       this.checklists.push(link);
     });
-    this.checklistsForm.reset();
+    this.ngOnChanges();
   }
 
   destroyChecklist(id: string, index: number) {
@@ -95,6 +99,15 @@ export class ChecklistsComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  toggleForm() {
+    this.toggleFormState = !this.toggleFormState;
+  }
+
+  cancelForm() {
+    this.ngOnChanges();
+    this.editMode = false;
   }
 
 }

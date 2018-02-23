@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :snippets
       resources :users
       resources :links
+      resources :todos
       resources :checklists do
         resources :checklist_items
       end

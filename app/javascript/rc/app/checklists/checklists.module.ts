@@ -7,6 +7,8 @@ import { checklistsRoutes } from 'checklists/checklists.routes';
 import { ChecklistsApiService } from '@shared/services/api/checklists.api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormInputModule } from '@shared/components/form-input/form-input.module';
+import { ContentTabsetComponent } from './tabs/tabs.component';
+import { ContentTabComponent } from 'checklists/tabs/tab.component';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { FormInputModule } from '@shared/components/form-input/form-input.module
     RouterModule.forChild(checklistsRoutes)
   ],
   declarations: [
-    ChecklistsComponent
+    ChecklistsComponent,
+    ContentTabsetComponent,
+    ContentTabComponent
   ],
   providers: [
     ChecklistsApiService
