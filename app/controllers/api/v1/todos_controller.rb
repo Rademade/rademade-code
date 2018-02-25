@@ -1,6 +1,7 @@
 module Api
   module V1
     class TodosController < ApplicationController
+      before_action :authenticate_request
       def index
         @todos = Todo.all
       end
