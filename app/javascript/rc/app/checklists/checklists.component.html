@@ -41,7 +41,6 @@
         <button (click)="toggleForm();cancelForm()" class="button-link button-link__gray">Cancel</button>
       </div>
     </div>
-    {{checklistsForm.value | json}}
   </form>
 </div>
 <button *ngIf="authService.isLoggedIn()" class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>

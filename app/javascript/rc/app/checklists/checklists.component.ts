@@ -22,8 +22,7 @@ export class ChecklistsComponent implements OnInit, OnChanges {
   constructor(
     private checklistsApiService: ChecklistsApiService,
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private activeRoute: ActivatedRoute
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -38,7 +37,10 @@ export class ChecklistsComponent implements OnInit, OnChanges {
 
 
   getChecklists() {
-    this.checklists = this.activeRoute.snapshot.data['checklists'];
+    this.checklistsApiService.index()
+      .subscribe((checklists) => {
+        this.checklists = checklists;
+      });
   }
 
   get checklist_items(): FormArray {
@@ -61,14 +63,14 @@ export class ChecklistsComponent implements OnInit, OnChanges {
   }
 
   updateChecklist() {
-    this.toggleForm();
     this.checklistsApiService.update(this.checklistsForm.value, this.currentId).subscribe(
       () => {
+        this.toggleForm();
         this.getChecklists();
+        this.ngOnChanges();
         this.editMode = false;
       }
     );
-    this.ngOnChanges();
   }
 
   editChecklist(id: number, index: number) {
