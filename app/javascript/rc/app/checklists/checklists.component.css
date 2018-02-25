@@ -2,6 +2,8 @@
 	position: relative;
 	padding-right: 70px;
 	width: 100%;
+	margin: 50px auto;
+	max-width: 720px;
 	box-sizing: border-box;
 }
 .checklists__actions {
@@ -16,8 +18,7 @@
 .checklists__item {
 	position: relative;
 	display: block;
-	margin-bottom: 10px;
-	overflow: hidden;
+	margin-bottom: 20px;
 	user-select: none;
 	cursor: pointer;
 	opacity: .7;
@@ -42,9 +43,10 @@
 
 .checklists__text {
 	position: relative;
-	padding-left: 34px;
-	color: #333;
-	font-size: rem(20);
+	display: block;
+	padding-left: 28px;
+	color: #2c3e50;
+	font-size: rem(16);
 	font-weight: bold;
 
 }
@@ -54,9 +56,9 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 25px;
-	height: 25px;
-	border: 2px solid #333;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #2c3e50;
 	box-sizing: border-box;
 }
 
