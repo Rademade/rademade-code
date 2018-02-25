@@ -6,22 +6,18 @@
     <button type="button" (click)="destroyChecklist(checklist.id, index)"><i class="material-icons">delete</i></button>
     <div class="checklists">
       <label class="checklists__item"
-             *ngFor="let item of checklist.checklist_items">
+             *ngFor="let item of checklist?.checklist_items">
         <input type="checkbox" class="checklists__input">
 
         <span class="checklists__text">
           <span [innerHTML]="item.title"></span>
         </span>
-
       </label>
     </div>
   </tab>
 </tabset>
 
-
-
 <div class="global-form" *ngIf="authService.isLoggedIn() && toggleFormState">
-
   <form class="global-form__data" [formGroup]="checklistsForm" *ngIf="authService.isLoggedIn()">
     <rc-form-input formControlName="title" label="Checklist title"></rc-form-input>
     <div formArrayName="checklist_items">
@@ -45,4 +41,4 @@
     {{checklistsForm.value | json}}
   </form>
 </div>
-<button class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>
+<button *ngIf="authService.isLoggedIn()" class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>

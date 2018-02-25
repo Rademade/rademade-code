@@ -19,7 +19,7 @@
     </div>
   </form>
 </div>
-<button class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>
+<button *ngIf="authService.isLoggedIn()" class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>
 
 <ul class="snippets__list">
   <li class="snippets__item" *ngFor="let snippet of snippets; let index = index">

@@ -1,7 +1,7 @@
 module Api
   module V1
     class ChecklistsController < ApplicationController
-      # before_action :authenticate_request, except: [:index, :show, :update, :destroy]
+      before_action :authenticate_request, except: [:index, :show]
       def index
         @checklists = Checklist.all
       end

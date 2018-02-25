@@ -18,7 +18,7 @@
 		</div>
 	</form>
 </div>
-<button class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>
+<button *ngIf="authService.isLoggedIn()" class="global-form__button" (click)="toggleForm()"><i class="material-icons">add</i></button>
 
 <ul class="links">
 	<li class="links__item" *ngFor="let link of links; let index = index">

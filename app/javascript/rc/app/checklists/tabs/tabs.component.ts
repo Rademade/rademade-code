@@ -14,11 +14,11 @@ import { ContentTabComponent } from './tab.component';
 export class ContentTabsetComponent implements AfterContentInit {
   @ContentChildren(ContentTabComponent) tabs: QueryList<ContentTabComponent>;
 
-  ngAfterContentInit(): void {
+  ngAfterContentInit() {
     this.tabs.toArray()[0].active = true;
   }
 
-  setActive(tab: ContentTabComponent): void {
+  setActive(tab: ContentTabComponent) {
     this.tabs.toArray().forEach((t) => t.active = false);
     tab.active = true;
   }

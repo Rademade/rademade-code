@@ -3,6 +3,7 @@ import { ChecklistItemModel, ChecklistModel } from 'models';
 import { ChecklistsApiService } from '@shared/services/api/checklists.api.service';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '@shared/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'rc-checklists',
@@ -21,6 +22,7 @@ export class ChecklistsComponent implements OnInit, OnChanges {
     private checklistsApiService: ChecklistsApiService,
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private activeRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -35,10 +37,7 @@ export class ChecklistsComponent implements OnInit, OnChanges {
 
 
   getChecklists() {
-    this.checklistsApiService.index()
-      .subscribe((checklists) => {
-        this.checklists = checklists;
-      });
+    this.checklists = this.activeRoute.snapshot.data['checklists'];
   }
 
   get checklist_items(): FormArray {

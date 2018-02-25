@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormInputModule } from '@shared/components/form-input/form-input.module';
 import { ContentTabsetComponent } from './tabs/tabs.component';
 import { ContentTabComponent } from 'checklists/tabs/tab.component';
+import { ChecklistsResolver } from 'checklists/checklists.resolver';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ContentTabComponent } from 'checklists/tabs/tab.component';
     ContentTabComponent
   ],
   providers: [
-    ChecklistsApiService
+    ChecklistsApiService,
+    ChecklistsResolver
   ]
 })
 
