@@ -1,11 +1,13 @@
-<div>
-	<a *ngFor="let tab of tabs"
-		 class="item"
-		 [class.active]="tab.active"
-		 (click)="setActive(tab)">
-
+<div class="tabset__data">
+	<h1 class="tabset__title">
+		Checklists
+	</h1>
+	<span *ngFor="let tab of tabs"
+				class="tabset__link"
+				[class.tabset__link--active]="tab.active"
+				(click)="setActive(tab)">
 		{{ tab.title }}
+		</span>
 
-	</a>
 </div>
 <ng-content></ng-content>

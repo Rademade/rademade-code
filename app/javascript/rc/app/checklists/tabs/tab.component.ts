@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input
 } from '@angular/core';
 
@@ -8,12 +7,12 @@ import {
   selector: 'tab',
   templateUrl: './tab.component.html'
 })
-export class ContentTabComponent implements OnInit {
+
+export class ContentTabComponent {
   @Input() title: string;
-  active = false;
-  name: string;
+  active: boolean;
 
-  constructor() { }
-
-  ngOnInit() { }
+  constructor() {
+    this.active = false;
+  }
 }

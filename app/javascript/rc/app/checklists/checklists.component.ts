@@ -7,7 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'rc-checklists',
-  templateUrl: './checklists.component.html'
+  templateUrl: './checklists.component.html',
+  styleUrls: ['./checklists.component.css']
 })
 export class ChecklistsComponent implements OnInit, OnChanges {
   private checklists: ChecklistModel[];

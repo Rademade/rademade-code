@@ -1,0 +1,25 @@
+.tabset__data {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.tabset__title {
+	display: inline-block;
+	margin-bottom: 0;
+	padding-right: 15px;
+	vertical-align: middle;
+}
+
+.tabset__link {
+	display: inline-block;
+	padding: 10px 15px;
+	vertical-align: middle;
+	font-size: rem(16);
+	color: #27ae60;
+	cursor: pointer;
+}
+
+.tabset__link--active {
+	background: #fff;
+}

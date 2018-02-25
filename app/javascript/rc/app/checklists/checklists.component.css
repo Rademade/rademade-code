@@ -1,0 +1,60 @@
+.checklists {
+
+}
+
+.checklists__item {
+	position: relative;
+	display: block;
+	margin-bottom: 10px;
+	overflow: hidden;
+	user-select: none;
+	cursor: pointer;
+}
+
+.checklists__input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+
+	&:checked + .checklists__text {
+		.checkbox__ico {
+			border-color: #27ae60;
+			background: #27ae60;
+		}
+		.material-icons {
+			opacity: 1;
+		}
+	}
+}
+
+.checklists__text {
+	position: relative;
+	padding-left: 34px;
+	color: #333;
+	font-size: rem(20);
+	font-weight: bold;
+
+}
+
+
+.checkbox__ico {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 25px;
+	height: 25px;
+	border: 2px solid #333;
+	box-sizing: border-box;
+}
+
+.material-icons {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 25px;
+	height: 25px;
+	opacity: 0;
+	color: #fff;
+	transform: translateX(-50%) translateY(-50%);
+}

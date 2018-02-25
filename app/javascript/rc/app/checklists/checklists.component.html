@@ -1,21 +1,24 @@
-<h1>Checklists</h1>
+
 
 <tabset>
   <tab *ngFor="let checklist of checklists; let index = index" [title]="checklist.title">
-    <button type="button" (click)="editChecklist(checklist.id, index)"><i class="material-icons">edit</i></button>
-    <button type="button" (click)="destroyChecklist(checklist.id, index)"><i class="material-icons">delete</i></button>
+    <i class="material-icons" (click)="editChecklist(checklist.id, index)">edit</i>
+    <i class="material-icons" (click)="destroyChecklist(checklist.id, index)">delete</i>
     <div class="checklists">
       <label class="checklists__item"
-             *ngFor="let item of checklist?.checklist_items">
+             *ngFor="let item of checklist.checklist_items">
         <input type="checkbox" class="checklists__input">
-
         <span class="checklists__text">
+          <span class="checkbox__ico">
+            <i class="material-icons">checked</i>
+          </span>
           <span [innerHTML]="item.title"></span>
         </span>
       </label>
     </div>
   </tab>
 </tabset>
+
 
 <div class="global-form" *ngIf="authService.isLoggedIn() && toggleFormState">
   <form class="global-form__data" [formGroup]="checklistsForm" *ngIf="authService.isLoggedIn()">
