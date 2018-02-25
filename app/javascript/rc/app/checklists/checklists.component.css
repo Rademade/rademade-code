@@ -1,5 +1,16 @@
 .checklists {
-
+	position: relative;
+	padding-right: 70px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.checklists__actions {
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: #333;
+	font-size: rem(24);
+	font-weight: bold;
 }
 
 .checklists__item {
@@ -9,6 +20,7 @@
 	overflow: hidden;
 	user-select: none;
 	cursor: pointer;
+	opacity: .7;
 }
 
 .checklists__input {
@@ -48,7 +60,7 @@
 	box-sizing: border-box;
 }
 
-.material-icons {
+.checkbox__val {
 	position: absolute;
 	top: 50%;
 	left: 50%;

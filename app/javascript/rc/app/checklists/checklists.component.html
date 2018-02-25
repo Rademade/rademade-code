@@ -1,16 +1,16 @@
-
-
 <tabset>
   <tab *ngFor="let checklist of checklists; let index = index" [title]="checklist.title">
-    <i class="material-icons" (click)="editChecklist(checklist.id, index)">edit</i>
-    <i class="material-icons" (click)="destroyChecklist(checklist.id, index)">delete</i>
     <div class="checklists">
+      <div class="checklists__actions">
+        <i class="material-icons" (click)="editChecklist(checklist.id, index)">edit</i>
+        <i class="material-icons" (click)="destroyChecklist(checklist.id, index)">delete</i>
+      </div>
       <label class="checklists__item"
              *ngFor="let item of checklist.checklist_items">
         <input type="checkbox" class="checklists__input">
         <span class="checklists__text">
           <span class="checkbox__ico">
-            <i class="material-icons">checked</i>
+            <i class="checkbox__val material-icons">checked</i>
           </span>
           <span [innerHTML]="item.title"></span>
         </span>
