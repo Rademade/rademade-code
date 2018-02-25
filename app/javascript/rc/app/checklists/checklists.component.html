@@ -1,7 +1,7 @@
 <tabset>
   <tab *ngFor="let checklist of checklists; let index = index" [title]="checklist.title">
     <div class="checklists">
-      <div class="checklists__actions">
+      <div class="checklists__actions" *ngIf="authService.isLoggedIn()">
         <i class="material-icons" (click)="editChecklist(checklist.id, index)">edit</i>
         <i class="material-icons" (click)="destroyChecklist(checklist.id, index)">delete</i>
       </div>
